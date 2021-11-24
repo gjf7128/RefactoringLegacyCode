@@ -1,5 +1,5 @@
 public interface FrameState {
 
     void changeState(String state);
-    void handleScore(int score);
+    void handleScore(Bowler bowler, int frame);
 }
