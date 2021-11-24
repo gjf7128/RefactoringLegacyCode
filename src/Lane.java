@@ -161,6 +161,9 @@ public class Lane extends Thread implements PinsetterObserver {
 	
 	private Bowler currentThrower;			// = the thrower who just took a throw
 
+	private FrameState currentState;
+
+
 	/** Lane()
 	 * 
 	 * Constructs a new lane and starts its thread
