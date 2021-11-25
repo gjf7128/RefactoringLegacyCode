@@ -3,7 +3,7 @@ public class Normal implements FrameState {
 
 
     @Override
-    public void handleScore() {
+    public void handleScore(Bowler bowler, int frame) {
 
     }
 }

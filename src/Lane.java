@@ -163,6 +163,7 @@ public class Lane extends Thread implements PinsetterObserver {
 
 	private FrameState currentState;
 
+	protected void setFrameState(FrameState currentState) {}
 
 	/** Lane()
 	 * 
