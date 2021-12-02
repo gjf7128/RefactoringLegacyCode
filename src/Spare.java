@@ -8,6 +8,12 @@ public class Spare implements FrameState {
 
     @Override
     public void handleScore(Bowler bowler, int frame) {
-
+        int[] curScore;
+        int strikeballs = 0;
+        int totalScore = 0;
+        curScore = (int[]) lane.getScores().get(bowler);
+        for (int i = 0; i != 10; i++){
+            lane.getCumulScores()[lane.getBowlIndex()][i] = 0;
+        }
     }
 }
