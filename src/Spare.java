@@ -26,6 +26,7 @@ public class Spare implements FrameState {
             }
             // if normal
             else {
+                lane.getCumulScores()[lane.getBowlIndex()][i] += curScore[i+1] + curScore[i];
                 lane.setFrameState(lane.getNormalState());
             }
         }
