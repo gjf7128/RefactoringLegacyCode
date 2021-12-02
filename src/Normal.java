@@ -22,19 +22,11 @@ public class Normal implements FrameState {
                 lane.getCumulScores()[lane.getBowlIndex()][(i-1)/2] += curScore[i];
                 lane.setFrameState(lane.getSpareState());
             }
-//            if (curScore[0] + curScore[1] == 10) {
-//                lane.setFrameState(lane.getSpareState());
-//            }
-            // if a strike happens
             else if (i == 0 && curScore[i+counter] == 10) {
                 lane.getCumulScores()[lane.getBowlIndex()][i] += curScore[i+counter];
                 counter += 2;
                 lane.setFrameState(lane.getStrikeState());
             }
-//            else if (curScore[0] == 10) {
-//                lane.setFrameState(lane.getStrikeState());
-//            }
-            // if normal
             else {
                 if (i % 2 == 0 && i != 0) {
                     lane.getCumulScores()[lane.getBowlIndex()][(i/2)] += curScore[i] + lane.getCumulScores()[lane.getBowlIndex()][(i/2)-1];

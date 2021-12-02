@@ -23,7 +23,6 @@ public class Strike implements FrameState {
             }
             // if a strike happens
             else if (i == 0 && curScore[i] == 10) {
-//                lane.getCumulScores()[lane.getBowlIndex()][i] += curScore[i+1] + curScore[i+2];
             }
             // if normal
             else {
