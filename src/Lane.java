@@ -162,14 +162,14 @@ public class Lane extends Thread implements PinsetterObserver {
 	private Bowler currentThrower;			// = the thrower who just took a throw
 
 	//class level variables needed for state subsystem
-	private FrameState currentScoreState;
+	private FrameState currentFrameState;
 	private FrameState strike;
 	private FrameState spare;
 	private FrameState normal;
 
 	//method which changes state.  called inside concrete state classes.
 	protected void setFrameState(FrameState state) {
-		currentScoreState = state;
+		currentFrameState = state;
 	}
 
 	//getters for Score state and class level variables we will need for the
@@ -191,7 +191,7 @@ public class Lane extends Thread implements PinsetterObserver {
 	//idk how to describe this yet. i think this potentially replaces getScore.
 	//further implementation is done inside concrete states?
 	public void handleScore(Bowler bowler, int frame) {
-		currentScoreState.handleScore(bowler, frame);
+		currentFrameState.handleScore(bowler, frame);
 	}
 
 	/** Lane()
@@ -219,7 +219,7 @@ public class Lane extends Thread implements PinsetterObserver {
 		normal = new Normal(this);
 
 		//default state
-		currentScoreState = normal;
+		currentFrameState = normal;
 		
 		this.start();
 	}
