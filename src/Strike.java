@@ -15,13 +15,13 @@ public class Strike implements FrameState {
         for (int i = 0; i != 10; i++){
             lane.getCumulScores()[lane.getBowlIndex()][i] = 0;
         }
-        for (int i = 1; i != 3; i++) {
+        for (int i = 0; i != 2; i++) {
             // if a spare happens
-            if (i == 2 && curScore[i] == 10) {
+            if (i == 1 && curScore[i] == 10) {
                 lane.setFrameState(lane.getSpareState());
             }
             // if a strike happens
-            else if (i == 1 && curScore[i] == 10) {
+            else if (i == 0 && curScore[i] == 10) {
                 lane.getCumulScores()[lane.getBowlIndex()][i] += curScore[i+1] + curScore[i+2];
             }
             // if normal
