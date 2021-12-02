@@ -37,8 +37,8 @@ public class Normal implements FrameState {
 //            }
             // if normal
             else {
-                if (i % 2 == 0) {
-                    lane.getCumulScores()[lane.getBowlIndex()][(i/2)] += curScore[i];
+                if (i % 2 == 0 && i != 0) {
+                    lane.getCumulScores()[lane.getBowlIndex()][(i/2)] += curScore[i] + lane.getCumulScores()[lane.getBowlIndex()][(i/2)-1];
                 }
                 else {
                     lane.getCumulScores()[lane.getBowlIndex()][(i-1)/2] += curScore[i];
