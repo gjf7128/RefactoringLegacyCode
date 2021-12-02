@@ -161,8 +161,13 @@ public class Lane extends Thread implements PinsetterObserver {
 	
 	private Bowler currentThrower;			// = the thrower who just took a throw
 
+	//class level variables needed for state subsystem
 	private FrameState currentState;
+	private FrameState strike;
+	private FrameState spare;
+	private FrameState normal;
 
+	//method which changes state.  called inside concrete state classes.
 	protected void setFrameState(FrameState state) {
 		currentState = state;
 	}
@@ -185,6 +190,14 @@ public class Lane extends Thread implements PinsetterObserver {
 		gameNumber = 0;
 
 		setter.subscribe( this );
+
+		//potential states
+		strike = new Strike(this);
+		spare = new Spare(this);
+		normal = new Normal(this);
+
+		//default state
+		currentState = normal;
 		
 		this.start();
 	}
