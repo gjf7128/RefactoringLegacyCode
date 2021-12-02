@@ -172,6 +172,12 @@ public class Lane extends Thread implements PinsetterObserver {
 		currentState = state;
 	}
 
+	//idk how to describe this yet. i think this potentially replaces getScore.
+	//further implementation is done inside concrete states?
+	public void handleScore(Bowler bowler, int frame) {
+		currentState.handleScore(bowler, frame);
+	}
+
 	/** Lane()
 	 * 
 	 * Constructs a new lane and starts its thread
