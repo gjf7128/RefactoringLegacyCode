@@ -16,7 +16,7 @@ public class Normal implements FrameState {
         for (int i = 0; i != 10; i++){
             lane.getCumulScores()[lane.getBowlIndex()][i] = 0;
         }
-        for (int i = 0; i != 21; i++) {
+        for (int i = 0; i != 20; i++) {
             // if a spare happens
             if (i == 1 && curScore[i + counter] == 10) {
                 lane.getCumulScores()[lane.getBowlIndex()][i+counter] += curScore[i+counter];
@@ -37,8 +37,12 @@ public class Normal implements FrameState {
 //            }
             // if normal
             else {
-                lane.getCumulScores()[lane.getBowlIndex()][i] += curScore[i] +curScore[i+1];
-                counter = (i/2) + 1;
+                if (i % 2 == 0) {
+                    lane.getCumulScores()[lane.getBowlIndex()][(i/2)] += curScore[i];
+                }
+                else {
+                    lane.getCumulScores()[lane.getBowlIndex()][(i-1)/2] += curScore[i];
+                }
             }
         }
     }
