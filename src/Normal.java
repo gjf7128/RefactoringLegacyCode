@@ -15,5 +15,19 @@ public class Normal implements FrameState {
         for (int i = 0; i != 10; i++){
             lane.getCumulScores()[lane.getBowlIndex()][i] = 0;
         }
+        for (int i = 1; i != 3; i++) {
+            // if a spare happens
+            if (i == 2 && curScore[i] == 10) {
+                lane.setFrameState(lane.getSpareState());
+            }
+            // if a strike happens
+            else if (i == 1 && curScore[i] == 10) {
+                lane.setFrameState(lane.getStrikeState());
+            }
+            // if normal
+            else {
+                lane.getCumulScores()[lane.getBowlIndex()][i] += curScore[i];
+            }
+        }
     }
 }

@@ -446,7 +446,7 @@ public class Lane extends Thread implements PinsetterObserver {
 	
 		curScore[ index - 1] = score;
 		scores.put(Cur, curScore);
-		getScore( Cur, frame );
+		handleScore( Cur, frame );
 		publish( lanePublish() );
 	}
 
